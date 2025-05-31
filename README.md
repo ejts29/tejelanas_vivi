@@ -21,7 +21,7 @@ Landing page desarrollada para Tejelanas Vivi, una empresa dedicada a la venta d
 - Eduardo Ahumada Catalan - RUT 17.304.258-2  
 - Repositorio GitHub: https://github.com/ejts29/tejelanas_vivi
 
-## Estructura del Proyecto
+## Estructura del Proyectoo
 
 tejelanas_vivi/
 ├── backend/
