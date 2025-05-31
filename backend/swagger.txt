@@ -1,0 +1,607 @@
+openapi: 3.0.0
+info:
+  title: Tejelanas Vivi API
+  description: Documentación completa de la API Tejelanas Vivi. Incluye Productos, FAQs, Contacto y Quiénes Somos.
+  version: 1.0.0
+  contact:
+    name: Soporte Tejelanas Vivi
+    email: soporte@tejelanasvivi.cl
+servers:
+  - url: http://localhost/tejelanas_vivi/backend/api
+    description: Servidor local
+tags:
+  - name: Productos
+    description: Endpoints relacionados con la gestión de productos
+  - name: Quienes Somos
+    description: Información institucional de la empresa
+  - name: FAQ
+    description: Preguntas frecuentes
+  - name: Contacto
+    description: Mensajes enviados desde el formulario de contacto
+paths:
+  /productos/productos_GET.php:
+    get:
+      tags:
+        - Productos
+      summary: Obtener todos los productos
+      description: Devuelve una lista de todos los productos disponibles.
+      responses:
+        "200":
+          description: Lista de productos obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Producto"
+        "500":
+          description: Error interno del servidor
+  /productos/productos_POST.php:
+    post:
+      tags:
+        - Productos
+      summary: Crear un nuevo producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductoInput"
+      responses:
+        "200":
+          description: Producto creado exitosamente
+        "400":
+          description: Datos inválidos
+        "500":
+          description: Error interno del servidor
+  /productos/productos_PUT.php:
+    put:
+      tags:
+        - Productos
+      summary: Actualizar un producto existente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Producto"
+      responses:
+        "200":
+          description: Producto actualizado exitosamente
+        "400":
+          description: Datos inválidos
+        "404":
+          description: Producto no encontrado
+        "500":
+          description: Error interno del servidor
+  /productos/productos_PATCH.php:
+    patch:
+      tags:
+        - Productos
+      summary: Actualización parcial de un producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+                precio:
+                  type: number
+                imagenUrl:
+                  type: string
+      responses:
+        "200":
+          description: Producto actualizado parcialmente
+        "400":
+          description: Datos inválidos
+        "404":
+          description: Producto no encontrado
+        "500":
+          description: Error interno del servidor
+  /productos/productos_DELETE.php:
+    delete:
+      tags:
+        - Productos
+      summary: Eliminar producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+      responses:
+        "200":
+          description: Producto eliminado correctamente
+        "400":
+          description: ID no proporcionado
+        "404":
+          description: Producto no encontrado
+        "500":
+          description: Error interno del servidor
+  /productos/QuienesSomos.php:
+    get:
+      tags:
+        - Quienes Somos
+      summary: Obtener información de "Quiénes Somos"
+      description: Recupera la información de la sección "Quiénes Somos".
+      operationId: getQuienesSomos
+      responses:
+        "200":
+          description: Información obtenida exitosamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/QuienesSomos"
+        "500":
+          description: Error del servidor.
+  /productos/QuienesSomos_POST.php:
+    post:
+      tags:
+        - Quienes Somos
+      summary: Crear entrada de "Quiénes Somos"
+      description: Agrega una nueva entrada de información.
+      operationId: createQuienesSomos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuienesSomosInput"
+      responses:
+        "200":
+          description: Creado exitosamente.
+        "400":
+          description: Datos inválidos.
+        "500":
+          description: Error del servidor.
+  /productos/QuienesSomos_PUT.php:
+    put:
+      tags:
+        - Quienes Somos
+      summary: Actualizar entrada de "Quiénes Somos"
+      description: Actualiza toda la entrada utilizando el ID.
+      operationId: updateQuienesSomos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuienesSomos"
+      responses:
+        "200":
+          description: Actualizado exitosamente.
+        "400":
+          description: Datos inválidos o ID faltante.
+        "404":
+          description: No encontrado.
+        "500":
+          description: Error del servidor.
+  /productos/QuienesSomos_PATCH.php:
+    patch:
+      tags:
+        - Quienes Somos
+      summary: Actualización parcial de "Quiénes Somos"
+      description: Modifica solo algunos campos de la entrada.
+      operationId: patchQuienesSomos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: integer
+                titulo:
+                  type: string
+                descripcion:
+                  type: string
+                mision:
+                  type: string
+                vision:
+                  type: string
+                imagenUrl:
+                  type: string
+      responses:
+        "200":
+          description: Actualizado parcialmente.
+        "400":
+          description: Datos inválidos o ID faltante.
+        "404":
+          description: No encontrado.
+        "500":
+          description: Error del servidor.
+  /productos/QuienesSomos_DELETE.php:
+    delete:
+      tags:
+        - Quienes Somos
+      summary: Eliminar entrada de "Quiénes Somos"
+      description: Elimina una entrada específica por ID.
+      operationId: deleteQuienesSomos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: integer
+      responses:
+        "200":
+          description: Eliminado exitosamente.
+        "400":
+          description: ID faltante.
+        "404":
+          description: No encontrado.
+        "500":
+          description: Error del servidor.
+  /productos/FAQ_GET.php:
+    get:
+      tags:
+        - FAQ
+      summary: Obtener todas las preguntas frecuentes
+      responses:
+        "200":
+          description: Lista de FAQs obtenida correctamente
+        "500":
+          description: Error interno del servidor
+  /productos/FAQ_POST.php:
+    post:
+      tags:
+        - FAQ
+      summary: Crear una nueva pregunta frecuente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FAQInput"
+      responses:
+        "200":
+          description: FAQ creada correctamente
+        "400":
+          description: Datos inválidos
+        "500":
+          description: Error interno del servidor
+  /productos/FAQ_PUT.php:
+    put:
+      tags:
+        - FAQ
+      summary: Actualizar pregunta frecuente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FAQ"
+      responses:
+        "200":
+          description: FAQ actualizada correctamente
+        "400":
+          description: Datos inválidos
+        "404":
+          description: FAQ no encontrada
+        "500":
+          description: Error interno del servidor
+  /productos/FAQ_PATCH.php:
+    patch:
+      tags:
+        - FAQ
+      summary: Actualizar parcialmente una pregunta frecuente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                question:
+                  type: string
+                answer:
+                  type: string
+      responses:
+        "200":
+          description: FAQ actualizada parcialmente
+        "400":
+          description: Datos inválidos
+        "404":
+          description: FAQ no encontrada
+        "500":
+          description: Error interno del servidor
+  /productos/FAQ_DELETE.php:
+    delete:
+      tags:
+        - FAQ
+      summary: Eliminar una pregunta frecuente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+      responses:
+        "200":
+          description: FAQ eliminada correctamente
+        "400":
+          description: ID no proporcionado
+        "404":
+          description: FAQ no encontrada
+        "500":
+          description: Error interno del servidor
+  /productos/contacto_GET.php:
+    get:
+      tags:
+        - Contacto
+      summary: Obtener todos los mensajes de contacto
+      responses:
+        "200":
+          description: Lista de contactos obtenida correctamente
+        "500":
+          description: Error interno del servidor
+  /productos/contacto_POST.php:
+    post:
+      tags:
+        - Contacto
+      summary: Crear un nuevo mensaje de contacto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactoInput"
+      responses:
+        "200":
+          description: Contacto creado correctamente
+        "400":
+          description: Datos incompletos o inválidos
+        "500":
+          description: Error interno del servidor
+  /productos/contacto_PUT.php:
+    put:
+      tags:
+        - Contacto
+      summary: Actualizar completamente un mensaje de contacto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Contacto"
+      responses:
+        "200":
+          description: Contacto actualizado correctamente
+        "400":
+          description: Datos inválidos o ID faltante
+        "404":
+          description: Contacto no encontrado
+        "500":
+          description: Error interno del servidor
+  /productos/contacto_PATCH.php:
+    patch:
+      tags:
+        - Contacto
+      summary: Actualizar parcialmente un mensaje de contacto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                nombre:
+                  type: string
+                email:
+                  type: string
+                mensaje:
+                  type: string
+      responses:
+        "200":
+          description: Contacto actualizado parcialmente
+        "400":
+          description: Datos inválidos o ID faltante
+        "404":
+          description: Contacto no encontrado
+        "500":
+          description: Error interno del servidor
+  /productos/contacto_DELETE.php:
+    delete:
+      tags:
+        - Contacto
+      summary: Eliminar un mensaje de contacto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+      responses:
+        "200":
+          description: Contacto eliminado exitosamente
+        "400":
+          description: ID faltante
+        "404":
+          description: Contacto no encontrado
+        "500":
+          description: Error interno del servidor
+components:
+  schemas:
+    Producto:
+      type: object
+      required:
+        - id
+        - nombre
+        - descripcion
+        - precio
+        - imagenUrl
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        descripcion:
+          type: string
+        precio:
+          type: number
+          format: float
+        imagenUrl:
+          type: string
+    ProductoInput:
+      type: object
+      required:
+        - nombre
+        - descripcion
+        - precio
+        - imagenUrl
+      properties:
+        nombre:
+          type: string
+        descripcion:
+          type: string
+        precio:
+          type: number
+          format: float
+        imagenUrl:
+          type: string
+    QuienesSomos:
+      type: object
+      required:
+        - id
+        - titulo
+        - descripcion
+        - mision
+        - vision
+        - imagenUrl
+      properties:
+        id:
+          type: integer
+        titulo:
+          type: string
+        descripcion:
+          type: string
+        mision:
+          type: string
+        vision:
+          type: string
+        imagenUrl:
+          type: string
+    QuienesSomosInput:
+      type: object
+      required:
+        - titulo
+        - descripcion
+        - mision
+        - vision
+        - imagenUrl
+      properties:
+        titulo:
+          type: string
+        descripcion:
+          type: string
+        mision:
+          type: string
+        vision:
+          type: string
+        imagenUrl:
+          type: string
+    FAQ:
+      type: object
+      required:
+        - id
+        - question
+        - answer
+      properties:
+        id:
+          type: integer
+        question:
+          type: string
+        answer:
+          type: string
+    FAQInput:
+      type: object
+      required:
+        - question
+        - answer
+      properties:
+        question:
+          type: string
+        answer:
+          type: string
+    Contacto:
+      type: object
+      required:
+        - id
+        - nombre
+        - email
+        - mensaje
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        email:
+          type: string
+        telefono:
+          type: string
+        asunto:
+          type: string
+        categoria:
+          type: string
+        mensaje:
+          type: string
+        metodoEnvio:
+          type: string
+        metodoPago:
+          type: string
+        fecha:
+          type: string
+          format: date-time
+    ContactoInput:
+      type: object
+      required:
+        - nombre
+        - email
+        - mensaje
+      properties:
+        nombre:
+          type: string
+        email:
+          type: string
+        telefono:
+          type: string
+        asunto:
+          type: string
+        categoria:
+          type: string
+        mensaje:
+          type: string
+        metodoEnvio:
+          type: string
+        metodoPago:
+          type: string
