@@ -34,6 +34,37 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Producto"
+              example:
+                - id: 1
+                  nombre: "Lana Merino"
+                  descripcion: "Lana suave de alta calidad"
+                  precio: 2990
+                  imagenUrl: "https://tejelanasvivi.cl/img/merino.jpg"
+            application/xml:
+              example: |
+                <Productos>
+                  <Producto>
+                    <id>1</id>
+                    <nombre>Lana Merino</nombre>
+                    <descripcion>Lana suave de alta calidad</descripcion>
+                    <precio>2990</precio>
+                    <imagenUrl>https://tejelanasvivi.cl/img/merino.jpg</imagenUrl>
+                  </Producto>
+                </Productos>
+          headers:
+            Cache-Control:
+              description: Control de caché
+              schema:
+                type: string
+                example: max-age=3600
+        "429":
+          description: Demasiadas peticiones
+          headers:
+            Retry-After:
+              description: Tiempo de espera antes de nuevos intentos
+              schema:
+                type: integer
+                example: 60
         "500":
           description: Error interno del servidor
   /productos/productos_POST.php:
@@ -159,6 +190,17 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/QuienesSomosInput"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/QuienesSomosInput"
+            example: |
+              <QuienesSomosInput>
+                <titulo>Nuestra Historia</titulo>
+                <descripcion>Desde 1990 tejiendo calidad</descripcion>
+                <mision>Entregar los mejores productos de lana</mision>
+                <vision>Ser líderes en el rubro textil artesanal</vision>
+                <imagenUrl>https://tejelanasvivi.cl/img/nuestra_historia.jpg</imagenUrl>
+              </QuienesSomosInput>
       responses:
         "200":
           description: Creado exitosamente.
@@ -260,6 +302,39 @@ paths:
       responses:
         "200":
           description: Lista de FAQs obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FAQ"
+              example:
+                - id: 1
+                  question: "¿Qué tipo de lanas ofrecen?"
+                  answer: "Ofrecemos lana merino, alpaca y algodón orgánico."
+            application/xml:
+              example: |
+                <FAQs>
+                  <FAQ>
+                    <id>1</id>
+                    <question>¿Qué tipo de lanas ofrecen?</question>
+                    <answer>Ofrecemos lana merino, alpaca y algodón orgánico.</answer>
+                  </FAQ>
+                </FAQs>
+          headers:
+            Cache-Control:
+              description: Control de caché
+              schema:
+                type: string
+                example: max-age=1800
+        "429":
+          description: Demasiadas peticiones
+          headers:
+            Retry-After:
+              description: Tiempo de espera sugerido
+              schema:
+                type: integer
+                example: 60
         "500":
           description: Error interno del servidor
   /productos/FAQ_POST.php:
@@ -273,9 +348,33 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/FAQInput"
+            example:
+              question: "¿Hacen envíos a regiones?"
+              answer: "Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress."
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/FAQInput"
+            example: |
+              <FAQInput>
+                <question>¿Hacen envíos a regiones?</question>
+                <answer>Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress.</answer>
+              </FAQInput>
       responses:
         "200":
           description: FAQ creada correctamente
+          content:
+            application/json:
+              example:
+                id: 2
+                question: "¿Hacen envíos a regiones?"
+                answer: "Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress."
+            application/xml:
+              example: |
+                <FAQ>
+                  <id>2</id>
+                  <question>¿Hacen envíos a regiones?</question>
+                  <answer>Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress.</answer>
+                </FAQ>
         "400":
           description: Datos inválidos
         "500":
@@ -358,6 +457,53 @@ paths:
       responses:
         "200":
           description: Lista de contactos obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Contacto"
+              example:
+                - id: 1
+                  nombre: "Camila"
+                  email: "camila@example.com"
+                  mensaje: "Estoy interesada en la lana de alpaca."
+                  telefono: "912345678"
+                  asunto: "Consulta por lana"
+                  categoria: "Producto"
+                  metodoEnvio: "Correo electrónico"
+                  metodoPago: "Transferencia"
+                  fecha: "2024-05-20T10:30:00Z"
+            application/xml:
+              example: |
+                <Contactos>
+                  <Contacto>
+                    <id>1</id>
+                    <nombre>Camila</nombre>
+                    <email>camila@example.com</email>
+                    <mensaje>Estoy interesada en la lana de alpaca.</mensaje>
+                    <telefono>912345678</telefono>
+                    <asunto>Consulta por lana</asunto>
+                    <categoria>Producto</categoria>
+                    <metodoEnvio>Correo electrónico</metodoEnvio>
+                    <metodoPago>Transferencia</metodoPago>
+                    <fecha>2024-05-20T10:30:00Z</fecha>
+                  </Contacto>
+                </Contactos>
+          headers:
+            Cache-Control:
+              description: Control de caché
+              schema:
+                type: string
+                example: max-age=1800
+        "429":
+          description: Demasiadas peticiones
+          headers:
+            Retry-After:
+              description: Tiempo de espera sugerido
+              schema:
+                type: integer
+                example: 60
         "500":
           description: Error interno del servidor
   /productos/contacto_POST.php:
@@ -371,9 +517,36 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ContactoInput"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/ContactoInput"
+            example: |
+              <ContactoInput>
+                <nombre>Camila</nombre>
+                <email>camila@example.com</email>
+                <mensaje>Estoy interesada en los productos de lana.</mensaje>
+                <telefono>912345678</telefono>
+                <asunto>Consulta por lana</asunto>
+                <categoria>Producto</categoria>
+                <metodoEnvio>Correo electrónico</metodoEnvio>
+                <metodoPago>Transferencia</metodoPago>
+              </ContactoInput>
       responses:
         "200":
           description: Contacto creado correctamente
+          content:
+            application/json:
+              example:
+                id: 2
+                nombre: "Camila"
+                email: "camila@example.com"
+                mensaje: "Estoy interesada en los productos de lana."
+                telefono: "912345678"
+                asunto: "Consulta por lana"
+                categoria: "Producto"
+                metodoEnvio: "Correo electrónico"
+                metodoPago: "Transferencia"
+                fecha: "2024-06-01T14:00:00Z"
         "400":
           description: Datos incompletos o inválidos
         "500":
@@ -591,8 +764,12 @@ components:
       properties:
         nombre:
           type: string
+          description: Nombre del usuario
+          example: Camila
         email:
           type: string
+          description: Correo electrónico de contacto
+          example: camila@example.com
         telefono:
           type: string
         asunto:
@@ -601,6 +778,8 @@ components:
           type: string
         mensaje:
           type: string
+          description: Contenido del mensaje
+          example: Estoy interesada en los productos de lana.
         metodoEnvio:
           type: string
         metodoPago:

@@ -1,0 +1,2600 @@
+{
+	"info": {
+		"_postman_id": "02a0b79e-4803-482f-a61a-62239b1d7bdc",
+		"name": "Tejelanas Vivi API",
+		"description": "Documentación completa de la API Tejelanas Vivi. Incluye Productos, FAQs, Contacto y Quiénes Somos.\n\nContact Support:\n Name: Soporte Tejelanas Vivi\n Email: soporte@tejelanasvivi.cl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43801966",
+		"_collection_link": "https://efren-4907564.postman.co/workspace/efren-'s-Workspace~10da0c18-f91b-4448-8c8e-fa1269048bb7/collection/43801966-02a0b79e-4803-482f-a61a-62239b1d7bdc?action=share&source=collection_link&creator=43801966"
+	},
+	"item": [
+		{
+			"name": "productos",
+			"item": [
+				{
+					"name": "productos_GET.php",
+					"item": [
+						{
+							"name": "Obtener todos los productos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/productos/productos_GET.php",
+								"description": "Devuelve una lista de todos los productos disponibles."
+							},
+							"response": [
+								{
+									"name": "Lista de productos obtenida exitosamente",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "{{baseUrl}}/productos/productos_GET.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=3600",
+											"description": {
+												"content": "Control de caché",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 1,\n    \"nombre\": \"Lana Merino\",\n    \"descripcion\": \"Lana suave de alta calidad\",\n    \"precio\": 2990,\n    \"imagenUrl\": \"https://tejelanasvivi.cl/img/merino.jpg\"\n  }\n]"
+								},
+								{
+									"name": "Demasiadas peticiones",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/productos/productos_GET.php"
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Retry-After",
+											"value": "60",
+											"description": {
+												"content": "Tiempo de espera antes de nuevos intentos",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/productos/productos_GET.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "productos_POST.php",
+					"item": [
+						{
+							"name": "Crear un nuevo producto",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nombre\": \"id veniam in\",\n  \"descripcion\": \"consequ\",\n  \"precio\": -33010533.488960728,\n  \"imagenUrl\": \"ad dolore do id\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/productos_POST.php"
+							},
+							"response": [
+								{
+									"name": "Producto creado exitosamente",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombre\": \"id veniam in\",\n  \"descripcion\": \"consequ\",\n  \"precio\": -33010533.488960728,\n  \"imagenUrl\": \"ad dolore do id\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_POST.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombre\": \"id veniam in\",\n  \"descripcion\": \"consequ\",\n  \"precio\": -33010533.488960728,\n  \"imagenUrl\": \"ad dolore do id\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_POST.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombre\": \"id veniam in\",\n  \"descripcion\": \"consequ\",\n  \"precio\": -33010533.488960728,\n  \"imagenUrl\": \"ad dolore do id\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_POST.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "productos_PUT.php",
+					"item": [
+						{
+							"name": "Actualizar un producto existente",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -1344452,\n  \"nombre\": \"consequat aute ali\",\n  \"descripcion\": \"qui eu proident cillum\",\n  \"precio\": 53962162.68418902,\n  \"imagenUrl\": \"in\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/productos_PUT.php"
+							},
+							"response": [
+								{
+									"name": "Producto actualizado exitosamente",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -1344452,\n  \"nombre\": \"consequat aute ali\",\n  \"descripcion\": \"qui eu proident cillum\",\n  \"precio\": 53962162.68418902,\n  \"imagenUrl\": \"in\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PUT.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -1344452,\n  \"nombre\": \"consequat aute ali\",\n  \"descripcion\": \"qui eu proident cillum\",\n  \"precio\": 53962162.68418902,\n  \"imagenUrl\": \"in\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PUT.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Producto no encontrado",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -1344452,\n  \"nombre\": \"consequat aute ali\",\n  \"descripcion\": \"qui eu proident cillum\",\n  \"precio\": 53962162.68418902,\n  \"imagenUrl\": \"in\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PUT.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -1344452,\n  \"nombre\": \"consequat aute ali\",\n  \"descripcion\": \"qui eu proident cillum\",\n  \"precio\": 53962162.68418902,\n  \"imagenUrl\": \"in\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PUT.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "productos_PATCH.php",
+					"item": [
+						{
+							"name": "Actualización parcial de un producto",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -36367089,\n  \"nombre\": \"enim qui\",\n  \"descripcion\": \"pariatur ullamco eiusmod\",\n  \"precio\": -4865478.582747191,\n  \"imagenUrl\": \"pariatur voluptate nulla ut officia\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/productos_PATCH.php"
+							},
+							"response": [
+								{
+									"name": "Producto actualizado parcialmente",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -36367089,\n  \"nombre\": \"enim qui\",\n  \"descripcion\": \"pariatur ullamco eiusmod\",\n  \"precio\": -4865478.582747191,\n  \"imagenUrl\": \"pariatur voluptate nulla ut officia\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PATCH.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -36367089,\n  \"nombre\": \"enim qui\",\n  \"descripcion\": \"pariatur ullamco eiusmod\",\n  \"precio\": -4865478.582747191,\n  \"imagenUrl\": \"pariatur voluptate nulla ut officia\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PATCH.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Producto no encontrado",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -36367089,\n  \"nombre\": \"enim qui\",\n  \"descripcion\": \"pariatur ullamco eiusmod\",\n  \"precio\": -4865478.582747191,\n  \"imagenUrl\": \"pariatur voluptate nulla ut officia\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PATCH.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -36367089,\n  \"nombre\": \"enim qui\",\n  \"descripcion\": \"pariatur ullamco eiusmod\",\n  \"precio\": -4865478.582747191,\n  \"imagenUrl\": \"pariatur voluptate nulla ut officia\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_PATCH.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "productos_DELETE.php",
+					"item": [
+						{
+							"name": "Eliminar producto",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 46716535\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/productos_DELETE.php"
+							},
+							"response": [
+								{
+									"name": "Producto eliminado correctamente",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_DELETE.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "ID no proporcionado",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_DELETE.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Producto no encontrado",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_DELETE.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/productos_DELETE.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "QuienesSomos.php",
+					"item": [
+						{
+							"name": "Obtener información de \"Quiénes Somos\"",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/productos/QuienesSomos.php",
+								"description": "Recupera la información de la sección \"Quiénes Somos\"."
+							},
+							"response": [
+								{
+									"name": "Información obtenida exitosamente.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "{{baseUrl}}/productos/QuienesSomos.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": -3321762,\n    \"titulo\": \"ea aute aliquip nis\",\n    \"descripcion\": \"eu fugiat\",\n    \"mision\": \"in id consectetur ut\",\n    \"vision\": \"ex non exercitation incididunt consectetur\",\n    \"imagenUrl\": \"dolore sit\"\n  },\n  {\n    \"id\": -22346700,\n    \"titulo\": \"aliquip labore et\",\n    \"descripcion\": \"Excepteur aute dolore\",\n    \"mision\": \"sunt et velit\",\n    \"vision\": \"in\",\n    \"imagenUrl\": \"irure\"\n  }\n]"
+								},
+								{
+									"name": "Error del servidor.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/productos/QuienesSomos.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "QuienesSomos_POST.php",
+					"item": [
+						{
+							"name": "Crear entrada de \"Quiénes Somos\"",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"titulo\": \"deserunt labore\",\n  \"descripcion\": \"consequat dolor Excepteur\",\n  \"mision\": \"enim tempor\",\n  \"vision\": \"deserunt co\",\n  \"imagenUrl\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/QuienesSomos_POST.php",
+								"description": "Agrega una nueva entrada de información."
+							},
+							"response": [
+								{
+									"name": "Creado exitosamente.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"titulo\": \"deserunt labore\",\n  \"descripcion\": \"consequat dolor Excepteur\",\n  \"mision\": \"enim tempor\",\n  \"vision\": \"deserunt co\",\n  \"imagenUrl\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_POST.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"titulo\": \"deserunt labore\",\n  \"descripcion\": \"consequat dolor Excepteur\",\n  \"mision\": \"enim tempor\",\n  \"vision\": \"deserunt co\",\n  \"imagenUrl\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_POST.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error del servidor.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"titulo\": \"deserunt labore\",\n  \"descripcion\": \"consequat dolor Excepteur\",\n  \"mision\": \"enim tempor\",\n  \"vision\": \"deserunt co\",\n  \"imagenUrl\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_POST.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "QuienesSomos_PUT.php",
+					"item": [
+						{
+							"name": "Actualizar entrada de \"Quiénes Somos\"",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 28757424,\n  \"titulo\": \"sint et ut\",\n  \"descripcion\": \"adipisicing in anim Lorem laboris\",\n  \"mision\": \"Ut mollit consectetur dolore do\",\n  \"vision\": \"et Duis mollit tempor ex\",\n  \"imagenUrl\": \"aliqua eiusmod ipsum est\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/QuienesSomos_PUT.php",
+								"description": "Actualiza toda la entrada utilizando el ID."
+							},
+							"response": [
+								{
+									"name": "Actualizado exitosamente.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 28757424,\n  \"titulo\": \"sint et ut\",\n  \"descripcion\": \"adipisicing in anim Lorem laboris\",\n  \"mision\": \"Ut mollit consectetur dolore do\",\n  \"vision\": \"et Duis mollit tempor ex\",\n  \"imagenUrl\": \"aliqua eiusmod ipsum est\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PUT.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos o ID faltante.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 28757424,\n  \"titulo\": \"sint et ut\",\n  \"descripcion\": \"adipisicing in anim Lorem laboris\",\n  \"mision\": \"Ut mollit consectetur dolore do\",\n  \"vision\": \"et Duis mollit tempor ex\",\n  \"imagenUrl\": \"aliqua eiusmod ipsum est\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PUT.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "No encontrado.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 28757424,\n  \"titulo\": \"sint et ut\",\n  \"descripcion\": \"adipisicing in anim Lorem laboris\",\n  \"mision\": \"Ut mollit consectetur dolore do\",\n  \"vision\": \"et Duis mollit tempor ex\",\n  \"imagenUrl\": \"aliqua eiusmod ipsum est\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PUT.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error del servidor.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 28757424,\n  \"titulo\": \"sint et ut\",\n  \"descripcion\": \"adipisicing in anim Lorem laboris\",\n  \"mision\": \"Ut mollit consectetur dolore do\",\n  \"vision\": \"et Duis mollit tempor ex\",\n  \"imagenUrl\": \"aliqua eiusmod ipsum est\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PUT.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "QuienesSomos_PATCH.php",
+					"item": [
+						{
+							"name": "Actualización parcial de \"Quiénes Somos\"",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -29643709,\n  \"titulo\": \"nisi Ut in labore\",\n  \"descripcion\": \"Ut eiusmo\",\n  \"mision\": \"Lorem minim amet irure\",\n  \"vision\": \"cupidatat in et\",\n  \"imagenUrl\": \"dolore aute sunt labore enim\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/QuienesSomos_PATCH.php",
+								"description": "Modifica solo algunos campos de la entrada."
+							},
+							"response": [
+								{
+									"name": "Actualizado parcialmente.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -29643709,\n  \"titulo\": \"nisi Ut in labore\",\n  \"descripcion\": \"Ut eiusmo\",\n  \"mision\": \"Lorem minim amet irure\",\n  \"vision\": \"cupidatat in et\",\n  \"imagenUrl\": \"dolore aute sunt labore enim\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PATCH.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos o ID faltante.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -29643709,\n  \"titulo\": \"nisi Ut in labore\",\n  \"descripcion\": \"Ut eiusmo\",\n  \"mision\": \"Lorem minim amet irure\",\n  \"vision\": \"cupidatat in et\",\n  \"imagenUrl\": \"dolore aute sunt labore enim\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PATCH.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "No encontrado.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -29643709,\n  \"titulo\": \"nisi Ut in labore\",\n  \"descripcion\": \"Ut eiusmo\",\n  \"mision\": \"Lorem minim amet irure\",\n  \"vision\": \"cupidatat in et\",\n  \"imagenUrl\": \"dolore aute sunt labore enim\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PATCH.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error del servidor.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -29643709,\n  \"titulo\": \"nisi Ut in labore\",\n  \"descripcion\": \"Ut eiusmo\",\n  \"mision\": \"Lorem minim amet irure\",\n  \"vision\": \"cupidatat in et\",\n  \"imagenUrl\": \"dolore aute sunt labore enim\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_PATCH.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "QuienesSomos_DELETE.php",
+					"item": [
+						{
+							"name": "Eliminar entrada de \"Quiénes Somos\"",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 2728181\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/QuienesSomos_DELETE.php",
+								"description": "Elimina una entrada específica por ID."
+							},
+							"response": [
+								{
+									"name": "Eliminado exitosamente.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 2728181\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_DELETE.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "ID faltante.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 2728181\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_DELETE.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "No encontrado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 2728181\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_DELETE.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error del servidor.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 2728181\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/QuienesSomos_DELETE.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "FAQ_GET.php",
+					"item": [
+						{
+							"name": "Obtener todas las preguntas frecuentes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/productos/FAQ_GET.php"
+							},
+							"response": [
+								{
+									"name": "Lista de FAQs obtenida correctamente",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "{{baseUrl}}/productos/FAQ_GET.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=1800",
+											"description": {
+												"content": "Control de caché",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 1,\n    \"question\": \"¿Qué tipo de lanas ofrecen?\",\n    \"answer\": \"Ofrecemos lana merino, alpaca y algodón orgánico.\"\n  }\n]"
+								},
+								{
+									"name": "Demasiadas peticiones",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/productos/FAQ_GET.php"
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Retry-After",
+											"value": "60",
+											"description": {
+												"content": "Tiempo de espera sugerido",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/productos/FAQ_GET.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "FAQ_POST.php",
+					"item": [
+						{
+							"name": "Crear una nueva pregunta frecuente",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"question\": \"¿Hacen envíos a regiones?\",\n  \"answer\": \"Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress.\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/FAQ_POST.php"
+							},
+							"response": [
+								{
+									"name": "FAQ creada correctamente",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"question\": \"¿Hacen envíos a regiones?\",\n  \"answer\": \"Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress.\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_POST.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 2,\n  \"question\": \"¿Hacen envíos a regiones?\",\n  \"answer\": \"Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress.\"\n}"
+								},
+								{
+									"name": "Datos inválidos",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"question\": \"¿Hacen envíos a regiones?\",\n  \"answer\": \"Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress.\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_POST.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"question\": \"¿Hacen envíos a regiones?\",\n  \"answer\": \"Sí, realizamos envíos a todo Chile a través de Starken o Chilexpress.\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_POST.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "FAQ_PUT.php",
+					"item": [
+						{
+							"name": "Actualizar pregunta frecuente",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -16689863,\n  \"question\": \"ullamco fugiat ut non\",\n  \"answer\": \"aute\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/FAQ_PUT.php"
+							},
+							"response": [
+								{
+									"name": "FAQ actualizada correctamente",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -16689863,\n  \"question\": \"ullamco fugiat ut non\",\n  \"answer\": \"aute\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PUT.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -16689863,\n  \"question\": \"ullamco fugiat ut non\",\n  \"answer\": \"aute\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PUT.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "FAQ no encontrada",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -16689863,\n  \"question\": \"ullamco fugiat ut non\",\n  \"answer\": \"aute\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PUT.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -16689863,\n  \"question\": \"ullamco fugiat ut non\",\n  \"answer\": \"aute\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PUT.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "FAQ_PATCH.php",
+					"item": [
+						{
+							"name": "Actualizar parcialmente una pregunta frecuente",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -67886211,\n  \"question\": \"ex ullamco dolor\",\n  \"answer\": \"in Excepteur velit aliqua irure\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/FAQ_PATCH.php"
+							},
+							"response": [
+								{
+									"name": "FAQ actualizada parcialmente",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -67886211,\n  \"question\": \"ex ullamco dolor\",\n  \"answer\": \"in Excepteur velit aliqua irure\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PATCH.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -67886211,\n  \"question\": \"ex ullamco dolor\",\n  \"answer\": \"in Excepteur velit aliqua irure\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PATCH.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "FAQ no encontrada",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -67886211,\n  \"question\": \"ex ullamco dolor\",\n  \"answer\": \"in Excepteur velit aliqua irure\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PATCH.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -67886211,\n  \"question\": \"ex ullamco dolor\",\n  \"answer\": \"in Excepteur velit aliqua irure\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_PATCH.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "FAQ_DELETE.php",
+					"item": [
+						{
+							"name": "Eliminar una pregunta frecuente",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 46716535\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/FAQ_DELETE.php"
+							},
+							"response": [
+								{
+									"name": "FAQ eliminada correctamente",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_DELETE.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "ID no proporcionado",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_DELETE.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "FAQ no encontrada",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_DELETE.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/FAQ_DELETE.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "contacto_GET.php",
+					"item": [
+						{
+							"name": "Obtener todos los mensajes de contacto",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/productos/contacto_GET.php"
+							},
+							"response": [
+								{
+									"name": "Lista de contactos obtenida correctamente",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "{{baseUrl}}/productos/contacto_GET.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=1800",
+											"description": {
+												"content": "Control de caché",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 1,\n    \"nombre\": \"Camila\",\n    \"email\": \"camila@example.com\",\n    \"mensaje\": \"Estoy interesada en la lana de alpaca.\",\n    \"telefono\": \"912345678\",\n    \"asunto\": \"Consulta por lana\",\n    \"categoria\": \"Producto\",\n    \"metodoEnvio\": \"Correo electrónico\",\n    \"metodoPago\": \"Transferencia\",\n    \"fecha\": \"2024-05-20T10:30:00Z\"\n  }\n]"
+								},
+								{
+									"name": "Demasiadas peticiones",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/productos/contacto_GET.php"
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Retry-After",
+											"value": "60",
+											"description": {
+												"content": "Tiempo de espera sugerido",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/productos/contacto_GET.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "contacto_POST.php",
+					"item": [
+						{
+							"name": "Crear un nuevo mensaje de contacto",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nombre\": \"Camila\",\n  \"email\": \"camila@example.com\",\n  \"mensaje\": \"Estoy interesada en los productos de lana.\",\n  \"telefono\": \"nulla ipsum\",\n  \"asunto\": \"nulla magna\",\n  \"categoria\": \"nisi deserunt pariatur sed\",\n  \"metodoEnvio\": \"cillum laboris dolor\",\n  \"metodoPago\": \"dolor\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/contacto_POST.php"
+							},
+							"response": [
+								{
+									"name": "Contacto creado correctamente",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombre\": \"Camila\",\n  \"email\": \"camila@example.com\",\n  \"mensaje\": \"Estoy interesada en los productos de lana.\",\n  \"telefono\": \"nulla ipsum\",\n  \"asunto\": \"nulla magna\",\n  \"categoria\": \"nisi deserunt pariatur sed\",\n  \"metodoEnvio\": \"cillum laboris dolor\",\n  \"metodoPago\": \"dolor\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_POST.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 2,\n  \"nombre\": \"Camila\",\n  \"email\": \"camila@example.com\",\n  \"mensaje\": \"Estoy interesada en los productos de lana.\",\n  \"telefono\": \"912345678\",\n  \"asunto\": \"Consulta por lana\",\n  \"categoria\": \"Producto\",\n  \"metodoEnvio\": \"Correo electrónico\",\n  \"metodoPago\": \"Transferencia\",\n  \"fecha\": \"2024-06-01T14:00:00Z\"\n}"
+								},
+								{
+									"name": "Datos incompletos o inválidos",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombre\": \"Camila\",\n  \"email\": \"camila@example.com\",\n  \"mensaje\": \"Estoy interesada en los productos de lana.\",\n  \"telefono\": \"nulla ipsum\",\n  \"asunto\": \"nulla magna\",\n  \"categoria\": \"nisi deserunt pariatur sed\",\n  \"metodoEnvio\": \"cillum laboris dolor\",\n  \"metodoPago\": \"dolor\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_POST.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombre\": \"Camila\",\n  \"email\": \"camila@example.com\",\n  \"mensaje\": \"Estoy interesada en los productos de lana.\",\n  \"telefono\": \"nulla ipsum\",\n  \"asunto\": \"nulla magna\",\n  \"categoria\": \"nisi deserunt pariatur sed\",\n  \"metodoEnvio\": \"cillum laboris dolor\",\n  \"metodoPago\": \"dolor\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_POST.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "contacto_PUT.php",
+					"item": [
+						{
+							"name": "Actualizar completamente un mensaje de contacto",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -24390169,\n  \"nombre\": \"sed sunt id veniam aliquip\",\n  \"email\": \"commodo sed\",\n  \"mensaje\": \"dolor voluptate Ut\",\n  \"telefono\": \"i\",\n  \"asunto\": \"sit do Ut\",\n  \"categoria\": \"consectetur\",\n  \"metodoEnvio\": \"fugiat ut laboris D\",\n  \"metodoPago\": \"commodo\",\n  \"fecha\": \"1971-03-31T13:49:11.910Z\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/contacto_PUT.php"
+							},
+							"response": [
+								{
+									"name": "Contacto actualizado correctamente",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -24390169,\n  \"nombre\": \"sed sunt id veniam aliquip\",\n  \"email\": \"commodo sed\",\n  \"mensaje\": \"dolor voluptate Ut\",\n  \"telefono\": \"i\",\n  \"asunto\": \"sit do Ut\",\n  \"categoria\": \"consectetur\",\n  \"metodoEnvio\": \"fugiat ut laboris D\",\n  \"metodoPago\": \"commodo\",\n  \"fecha\": \"1971-03-31T13:49:11.910Z\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PUT.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos o ID faltante",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -24390169,\n  \"nombre\": \"sed sunt id veniam aliquip\",\n  \"email\": \"commodo sed\",\n  \"mensaje\": \"dolor voluptate Ut\",\n  \"telefono\": \"i\",\n  \"asunto\": \"sit do Ut\",\n  \"categoria\": \"consectetur\",\n  \"metodoEnvio\": \"fugiat ut laboris D\",\n  \"metodoPago\": \"commodo\",\n  \"fecha\": \"1971-03-31T13:49:11.910Z\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PUT.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Contacto no encontrado",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -24390169,\n  \"nombre\": \"sed sunt id veniam aliquip\",\n  \"email\": \"commodo sed\",\n  \"mensaje\": \"dolor voluptate Ut\",\n  \"telefono\": \"i\",\n  \"asunto\": \"sit do Ut\",\n  \"categoria\": \"consectetur\",\n  \"metodoEnvio\": \"fugiat ut laboris D\",\n  \"metodoPago\": \"commodo\",\n  \"fecha\": \"1971-03-31T13:49:11.910Z\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PUT.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -24390169,\n  \"nombre\": \"sed sunt id veniam aliquip\",\n  \"email\": \"commodo sed\",\n  \"mensaje\": \"dolor voluptate Ut\",\n  \"telefono\": \"i\",\n  \"asunto\": \"sit do Ut\",\n  \"categoria\": \"consectetur\",\n  \"metodoEnvio\": \"fugiat ut laboris D\",\n  \"metodoPago\": \"commodo\",\n  \"fecha\": \"1971-03-31T13:49:11.910Z\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PUT.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "contacto_PATCH.php",
+					"item": [
+						{
+							"name": "Actualizar parcialmente un mensaje de contacto",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 34653808,\n  \"nombre\": \"occaecat veniam esse id ad\",\n  \"email\": \"in aliquip ullamco do\",\n  \"mensaje\": \"ut commodo aliqua dolor\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/contacto_PATCH.php"
+							},
+							"response": [
+								{
+									"name": "Contacto actualizado parcialmente",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 34653808,\n  \"nombre\": \"occaecat veniam esse id ad\",\n  \"email\": \"in aliquip ullamco do\",\n  \"mensaje\": \"ut commodo aliqua dolor\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PATCH.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Datos inválidos o ID faltante",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 34653808,\n  \"nombre\": \"occaecat veniam esse id ad\",\n  \"email\": \"in aliquip ullamco do\",\n  \"mensaje\": \"ut commodo aliqua dolor\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PATCH.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Contacto no encontrado",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 34653808,\n  \"nombre\": \"occaecat veniam esse id ad\",\n  \"email\": \"in aliquip ullamco do\",\n  \"mensaje\": \"ut commodo aliqua dolor\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PATCH.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 34653808,\n  \"nombre\": \"occaecat veniam esse id ad\",\n  \"email\": \"in aliquip ullamco do\",\n  \"mensaje\": \"ut commodo aliqua dolor\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_PATCH.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "contacto_DELETE.php",
+					"item": [
+						{
+							"name": "Eliminar un mensaje de contacto",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 46716535\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/productos/contacto_DELETE.php"
+							},
+							"response": [
+								{
+									"name": "Contacto eliminado exitosamente",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_DELETE.php"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "ID faltante",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_DELETE.php"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Contacto no encontrado",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_DELETE.php"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error interno del servidor",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 46716535\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/productos/contacto_DELETE.php"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost/tejelanas_vivi/backend/api"
+		}
+	]
+}
